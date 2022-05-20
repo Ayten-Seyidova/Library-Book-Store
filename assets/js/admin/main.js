@@ -1,11 +1,14 @@
+// **************************************
 // Login section
+let loginPage = $("#loginPage");
+let adminPage = $("#adminPage");
 
 if (localStorage.getItem("login")) {
-    $("#loginPage").hide();
-    $("#adminPage").show();
+    loginPage.hide();
+    adminPage.show();
 } else {
-    $("#loginPage").show();
-    $("#adminPage").hide();
+    loginPage.show();
+    adminPage.hide();
 }
 
 $("#loginBtn").on("click", (e) => {
@@ -32,8 +35,8 @@ $("#loginBtn").on("click", (e) => {
             if (usernameVal == username && passwordVal == password) {
                 localStorage.setItem("login", JSON.stringify(snap.val()));
                 clearInput();
-                $("#loginPage").hide();
-                $("#adminPage").show();
+                loginPage.hide();
+                adminPage.show();
             } else {
                 swal({
                     icon: 'error',
@@ -55,15 +58,28 @@ $("#loginBtn").on("click", (e) => {
     clearInput();
 })
 
+// **************************************
 // Logout section
 
 $("#logoutBtn").on("click", () => {
     localStorage.removeItem("login");
-    $("#loginPage").show();
-    $("#adminPage").hide();
+    loginPage.show();
+    adminPage.hide();
 })
 
+// **************************************
+// Clear input of book section
 
+let clearBookInput = () => {
+    $("#bookName").val("");
+    $("#authorName").val("");
+    $("#bookImageUrl").val("");
+    $("#addBookDescription").val("");
+    $("#publicationYear").val("");
+    $("#isNew").prop("checked", false);
+}
+
+// **************************************
 // Search section
 
 $("#searchBtn").on("click", (e) => {
@@ -73,7 +89,7 @@ $("#searchBtn").on("click", (e) => {
 
 $("#searchResult").on("click", () => {
     $("#searchResult").hide();
-    $("#searchInput").val("")
+    $("#searchInput").val("");
 });
 
 $("#searchBtn").on("click", () => {
@@ -96,50 +112,149 @@ $("#searchBtn").on("click", () => {
                 let data = item.volumeInfo;
                 let searchImg = '';
                 data.imageLinks.thumbnail ? searchImg = data.imageLinks.thumbnail : searchImg = './assets/img/book.png';
-                let searchRes = $("<li>").addClass("row align-items-center mb-3 cursor-pointer");
+                let searchRes = $("<li>").addClass("row align-items-center mb-3 cursor-pointer").attr("data-name", data.authors);
                 searchRes.html(`<img src="${searchImg}" class="col-4 search-img" alt=""><span class="col-8">${data.authors}</span>`);
                 $("#searchResult ul").append(searchRes);
+                searchRes.on("click", function () {
+                    clearBookInput();
+                    getBookInfo(data);
+                })
             }
         }
     })
 })
 
+// **************************************
 // Add book section
 
-$("#addBookDescription").keyup(() => {
+$("#addBookDescription").on("change keyup paste", () => {
     $("#bookTextareaCount").text($("#addBookDescription").val().length);
-    if ($("#addBookDescription").val().length == 100) {
+    if ($("#addBookDescription").val().length >= 100) {
         $("#bookTextarea").addClass("text-danger");
     } else {
         $("#bookTextarea").removeClass("text-danger");
     }
 })
 
+// ***************************************
+// Get book information and write to input
 
-// Add Type Section
+function getBookInfo(data) {
+    $("#bookName").val(data.title);
+    $("#authorName").val(data.authors);
+    $("#addBookDescription").val(data.description);
+    if (data.imageLinks.thumbnail) {
+        $("#bookImageUrl").val(data.imageLinks.thumbnail);
+    }
+
+    if (data.publishedDate) {
+        let publishYear = parseInt(data.publishedDate.substring(0, 4))
+        let thisYear = new Date().getFullYear();
+        $("#publicationYear").val(publishYear);
+
+        if (publishYear >= (thisYear - 2)) {
+            $("#isNew").prop("checked", true);
+        }
+    }
+}
+
+
+// **************************************
+// Add and Show Book Type Section
+
+let addTypeSection = $('#addTypeSection');
+let dbBookType = db.ref("/book-type");
+let bookTypeInput = $("#bookTypeInput");
 
 $('#addTypeBtn').click(function (e) {
-    $('#addTypeSection').toggle();
+    addTypeSection.toggle();
     e.stopPropagation();
 });
 
 $("body").click(function () {
-    $('#addTypeSection').hide();
+    addTypeSection.hide();
 });
 
-$('#addTypeSection').click(function (e) {
+addTypeSection.click(function (e) {
     e.stopPropagation();
 });
 
+dbBookType.on("value", function (snap) {
+    let categoryObj = snap.val()
+    let categoryArr = Object.entries(categoryObj).reverse();
+    let idObjectArray = categoryArr.map(item => {
+        return {
+            id: item[0],
+            ...item[1]
+        }
+    })
+
+    renderPage(idObjectArray);
+})
+
+function renderPage(arr) {
+    $("#categorySelect").html(arr.map(item => {
+        return `<option value="${item.category}">${item.category}</option>`
+    }))
+}
+
 $("#bookTypeBtn").on("click", (e) => {
     e.preventDefault();
-    $('#addTypeSection').hide();
+    addTypeSection.hide();
+    let typeVal = bookTypeInput.val().trim();
+    if (typeVal) {
+        dbBookType.push().set({ category: typeVal })
+        swal({
+            icon: 'success',
+            title: 'Success...',
+            text: "Book type successfully added",
+        })
+    } else {
+        swal({
+            icon: 'error',
+            title: 'Error...',
+            text: "Book type can't be empty",
+        })
+    }
+    bookTypeInput.val("");
+})
+
+
+// **************************************
+// Add book to firebase section
+
+$("#addBookBtn").on("click", function () {
+    let bookName = $("#bookName").val();
+    let authorName = $("#authorName").val();
+    let image = $("#bookImageUrl").val();
+    let year = $("#publicationYear").val();
+    let description = $("#addBookDescription").val();
+    let category = $("#categorySelect").val();
+    let isNew = $("#isNew").is(":checked");
+
+    let bookObj = {
+        bookName,
+        authorName,
+        image,
+        year,
+        description,
+        isNew,
+        category
+    }
+
+    db.ref("/books").push().set(bookObj);
+
     swal({
         icon: 'success',
         title: 'Success...',
-        text: "Book type successfully added",
+        text: "Book successfully added",
     })
 })
+
+
+
+
+
 
 
 
