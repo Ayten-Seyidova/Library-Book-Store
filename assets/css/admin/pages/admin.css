@@ -247,7 +247,7 @@ body {
 }
 
 .add-section .add-new-book:hover {
-    background-color: #b96e13;
+    background-color: #dd7b03;
 }
 
 /* About section */
@@ -311,7 +311,7 @@ textarea,
 }
 
 .about-info-add:hover {
-    background-color: #b96e13;
+    background-color: #dd7b03;
 }
 
 /* End about section */
