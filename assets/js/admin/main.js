@@ -263,50 +263,6 @@ $("#addBookBtn").on("click", function () {
 
 // Your code is here
 
-$(".about-info-add").on("click", () => {
-    let title = $("#title").val();
-    let imageUrl = $("#imageUrl").val();
-    let aboutDescription = $("#aboutDescription").val();
-    db.ref('about-store').push().set({
-      "about-title": title,
-      "about-url": imageUrl,
-      "about-description": aboutDescription
-    });
-})
-
-// let dbAboutStore =  db.ref("/about-store");
-
-// dbAboutStore.on("value", function(snap){
-//     let storeDataObj = snap.val();
-//     console.log(storeDataObj)
-//     let storeDataArr = Object.entries(storeDataObj);
-//     console.log(storeDataArr)
-//     let idObjectArray = storeDataArr.map(item=>{
-//         return {
-//             id: item[0],
-//             ...item[1]
-//         }
-//     })
-//     renderPage(idObjectArray)
-//     console.log(idObjectArray)
-    
-// })
-
-// function renderPage(arr) {
-//     $("#aboutStoreMain").html(arr.map(item=>{
-//         return `<h1 id="abotTitle">${item.title}</h1>
-//         <div class="d-flex justify-content-around" id="image-text">
-//             <div>
-//                 <p id="text">${item.aboutDescription}</p>
-//             </div>
- 
-//             <div id="img">
-//                 <img src="${item.imageUrl}" alt="">
-//             </div>
- 
-//         </div>`
-//     }).join(""))
-// }
 
 
 // End of about store section
