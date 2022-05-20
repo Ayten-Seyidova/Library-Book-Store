@@ -272,6 +272,35 @@ $("#addBookBtn").on("click", function () {
 
 // *****************************
 // Join us section (Xalid)
+let userCollection = db.ref("/users")
+
+
+userCollection.on("value", function (snap) {
+    let data = Object.entries(snap.val()).map((item) => {
+      return {
+        id: item[0],
+        ...item[1]
+
+      }
+    })
+    console.log(data);
+    renderPage(data)
+  })
+
+  function renderPage(arr){
+    console.log("test");
+    $("#joinUsTbody").html(
+      arr.map((item,index) =>{
+        return `
+        <tr class="bg-white">
+                            <th scope="row">${index + 1}</th>
+                            <td>${item.joinFullName}</td>
+                            <td>${item.joinEmail}</td>
+                        </tr>
+        `
+      })
+    )
+  }
 
 // Your code is here
 
