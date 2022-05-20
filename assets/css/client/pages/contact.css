@@ -35,6 +35,7 @@ footer {
     width: 80%;
     background-color: #fff;
     height: 1px;
+    
 }
 
 body::-webkit-scrollbar {
@@ -78,11 +79,15 @@ body::-webkit-scrollbar-track {
 .link-header p {
     font-weight: 400 !important;
     font-size: 18px !important;
+    margin: 7px;
 }
 
 .link-footer a {
     font-size: 13px !important;
     font-weight: 400 !important;
+    color:#fff;
+    margin: 6px;
+    
 }
 
 .navbar-for-footer {
@@ -347,7 +352,6 @@ body::-webkit-scrollbar-track {
     }
 }
 
-/* Contact Us Page Css start */
 #form-control-contactPG {
     height: 75px;
     border: 1px solid #CECECE;
@@ -359,7 +363,8 @@ body::-webkit-scrollbar-track {
     color: #797667;
 }
 
-.btn-contactPG, .btn-contactPG-2 {
+.btn-contactPG,
+.btn-contactPG-2 {
     height: 75px;
     background-color: var(--main-Orange-color) !important;
     font-family: 'Crimson Pro', serif;
@@ -399,4 +404,9 @@ body::-webkit-scrollbar-track {
     }
 }
 
-/* Contact Us Page Css end */
+.text-white{
+    margin-bottom: 10px;
+}
+ 
+
+
