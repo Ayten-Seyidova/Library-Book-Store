@@ -243,6 +243,11 @@ body {
     font-weight: 400px;
     margin-top: 24px;
     padding: 12px;
+    transition: .3s all ease-in-out;
+}
+
+.add-section .add-new-book:hover {
+    background-color: #b96e13;
 }
 
 /* About section */
@@ -302,6 +307,11 @@ textarea,
     color: #fff;
     font-weight: 400;
     padding: 12px;
+    transition: .3s all ease-in-out;
+}
+
+.about-info-add:hover {
+    background-color: #b96e13;
 }
 
 /* End about section */
