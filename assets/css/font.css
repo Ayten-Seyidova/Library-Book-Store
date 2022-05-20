@@ -1,0 +1,30 @@
+<<<<<<< HEAD
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Montserrat:wght@100;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Roboto:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Pragati+Narrow:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Nunito+Sans:wght@200;300;400;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@200;300;400;500;600;700;800;900&display=swap');
+
+
+:root {
+    --main-Red-bg-color: #720418;
+    --main-Orange-color: #E16A00;
+    --main-btn-color:#ff8b00;
+    --footerColor: #391f00;
+    --mainPage-white-bg-color: #fffaf5;
+    --mainFont: 'Montserrat', sans-serif; 
+    --btn-font-family:'Pragati Narrow', sans-serif;
+    --white-table-color:#F9FAFC;
+  }
+  
+a{
+    text-decoration:none;
+    color: #fff;
+} 
+=======
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Mr+Dafoe&family=Mulish:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Preahvihear&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+>>>>>>> e58677ba3582418c5117adbe2bb348f4af922a31
