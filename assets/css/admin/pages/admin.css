@@ -70,10 +70,42 @@ body {
     height: 35px;
     margin-right: 12px;
 }
-/*********************Side bar mobile design*****/
-@media only screen and (max-width: 968px){
 
+/*********************Side bar mobile design*****/
+@media only screen and (max-width: 992px) {
+    .sideBar {
+        display: none;
+    }
+
+    .admin-icon {
+        display: none;
+    }
+    .CloseMenuHeaderSection{
+        width: 80%;
+        background-color: var(--main-Red-bg-color);
+        position: fixed;
+        left: -100%;
+        height: 100vh;
+        position: fixed;
+        transition: .6s; 
+        z-index: 99;
+      }
+
+    .OpenMenuSTART .CloseMenuHeaderSection {
+        left: 0%;
+        transition: .6s;
+    }
+
+    .OpenMenuSTART .opavisib {
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    .OpenMenuSTART {
+        overflow: hidden;
+    }
 }
+
 /*************************************************/
 
 .addBook {
@@ -146,7 +178,7 @@ body {
     display: none;
 }
 
-.search-book-section .search-result ul{
+.search-book-section .search-result ul {
     padding: 0;
     max-height: 320px;
     overflow-y: auto;
@@ -156,7 +188,7 @@ body {
 .search-book-section .search-result ul::-webkit-scrollbar-track {
     box-shadow: inset 0 0 5px var(--mainBeigeColor);
     border-radius: 20px;
-} 
+}
 
 .search-book-section .search-result p:not(:last-child) {
     margin-bottom: 15px;
@@ -165,7 +197,7 @@ body {
 #searchResult .search-img {
     border-radius: 50px;
     display: block;
-    height: 50px; 
+    height: 50px;
     width: 50px;
     object-fit: cover;
     padding: 0;
@@ -188,7 +220,9 @@ body {
     margin-bottom: 20px;
 }
 
-.add-section label, .add-section input, .add-section textarea {
+.add-section label,
+.add-section input,
+.add-section textarea {
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
     color: #030102;
@@ -200,7 +234,8 @@ body {
     font-size: 16px;
 }
 
-.add-section textarea, input {
+.add-section textarea,
+input {
     box-shadow: 0 0 10px 0 lightgray;
 }
 
@@ -323,8 +358,8 @@ textarea,
 
 /* Join section */
 .JoinUs {
-    width: 512px;
-    height: 258px;
+    /* width: 512px;
+    height: 258px; */
     margin: 136px 0 154px 30px;
 }
 
@@ -363,6 +398,3 @@ textarea,
 /* Your code is here */
 
 /* End contact section */
-
-
-
