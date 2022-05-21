@@ -347,7 +347,59 @@ function renderPage(arr) {
 // *****************************
 // Contact us section (Ruslan)
 
-// Your code is here
+// var btn = document.querySelector("#btn-sent-contactPG")
+// alert(btn)
+
+$(document).on('click', '#btn-sent-contactPG', () => {
+
+	if(!$("[data-input='name']").val() || !$("[data-input='email']").val() || !$("[data-input='address']").val() || !$("[data-input='phone']").val()) {
+		alert('Formu doldurun!')
+	}
+	else {
+		db.ref('/contactUs').push().set({
+			fullName :$("[data-input='name']").val(),
+			email : $("[data-input='email']").val(),
+			address : $("[data-input='address']").val(),
+			phone :$("[data-input='phone']").val(),
+		})
+
+		$("[data-input='name']").val(null)
+		$("[data-input='email']").val(null)
+		$("[data-input='address']").val(null)
+		$("[data-inp='phone']").val(null)
+
+        var result_mesaj = "Sorgu ugurla gonderildi! "
+		return alert(result_mesaj)
+	}
+})
+
+db.ref('/contactUs').once('value', (snapshot) => {
+	let contactUs_data = Object.entries(snapshot.val()).map((e) => {
+		for (i in e) {
+			reData = {
+				id: e[0],
+				...e[1],
+			};
+		}
+		return reData;
+	});
+	
+	for (let i = contactUs_data.length - 4; i < contactUs_data.length; i++) {
+		$('#contactUsTbody').append(
+			`
+            <tr id='tr-${i}'>
+                <th scope="row">${i}</th>
+                <td>${contactUs_data[i].fullName}</td>
+                <td>${contactUs_data[i].address}</td>
+                <td>${contactUs_data[i].email}</td>
+                <td>${contactUs_data[i].phone}</td>
+            </tr>
+                `
+		);
+	}
+});
+
+
 
 // End of contact us section
 // *****************************
