@@ -189,10 +189,10 @@ dbBookType.on("value", function (snap) {
         }
     })
 
-    renderPage(idObjectArray);
+    renderCategoryPage(idObjectArray);
 })
 
-function renderPage(arr) {
+function renderCategoryPage(arr) {
     $("#categorySelect").html(arr.map(item => {
         return `<option value="${item.category}">${item.category}</option>`
     }))
@@ -224,13 +224,22 @@ $("#bookTypeBtn").on("click", (e) => {
 // Add book to firebase section
 
 $("#addBookBtn").on("click", function () {
-    let bookName = $("#bookName").val();
-    let authorName = $("#authorName").val();
-    let image = $("#bookImageUrl").val();
+    let bookName = $("#bookName").val().trim();
+    let authorName = $("#authorName").val().trim();
+    let image = $("#bookImageUrl").val().trim();
     let year = $("#publicationYear").val();
-    let description = $("#addBookDescription").val();
+    let description = $("#addBookDescription").val().trim();
     let category = $("#categorySelect").val();
     let isNew = $("#isNew").is(":checked");
+
+    if (bookName === "" || authorName === "" || description === "") {
+        swal({
+            icon: 'error',
+            title: 'Error...',
+            text: "Book data can't be empty",
+        })
+        return;
+    }
 
     let bookObj = {
         bookName,
@@ -273,9 +282,7 @@ $("#addBookBtn").on("click", function () {
 // *****************************
 // Join us section (Xalid)
 
-let userCollection = db.ref("/users")
-
-
+let userCollection = db.ref("/users");
 userCollection.on("value", function (snap) {
     let data = Object.entries(snap.val()).map((item) => {
         return {
@@ -284,20 +291,18 @@ userCollection.on("value", function (snap) {
 
         }
     })
-    console.log(data);
     renderPage(data)
 })
 
 function renderPage(arr) {
-    console.log("test");
     $("#joinUsTbody").html(
         arr.map((item, index) => {
             return `
         <tr class="bg-white">
-                            <th scope="row">${index + 1}</th>
-                            <td>${item.joinFullName}</td>
-                            <td>${item.joinEmail}</td>
-                        </tr>
+            <th scope="row">${index + 1}</th>
+            <td>${item.joinFullName}</td>
+            <td>${item.joinEmail}</td>
+        </tr>
         `
         })
     )
