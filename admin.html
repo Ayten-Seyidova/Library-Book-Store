@@ -37,7 +37,8 @@
     <div id="adminPage">
         <section class="sideBar col-3 vh-100">
             <div class="logo">
-                <img src="./assets/img/logo.svg" alt="logo">
+                <a href="./index.html"><img src="./assets/img/logo.svg" alt="logo"></a>
+                
             </div>
             <a href="#homePage" class="home my-0">
                 <img src="./assets/img/logo.png" class="img1">
@@ -62,7 +63,45 @@
 
         </section>
 
-        <section class="addBook px-4 col-9">
+        <div class="CloseMenuHeaderSection  vh-100 d-none">
+            <div class="logo d-flex justify-content-between align-items-center">
+                <img src="./assets/img/logo.svg" alt="logo">
+                <i id="closeBtn" class="fas fa-times close-btn "
+                    style="margin-right: 10%; color: white; font-size: 30px;"></i>
+
+            </div>
+            <a href="#homePage" class="home  my-0">
+                <img src="./assets/img/logo.png" class="img1">
+                <span class="text-white">Home</span>
+            </a>
+            <a href="#aboutPage" class="home">
+                <img src="./assets/img/logo.png" class="img1">
+                <span class="text-white">About</span>
+            </a>
+            <a href="#Join_us" class="home">
+                <img src="./assets/img/logo.png" class="img1">
+                <span class="text-white">Join us</span>
+            </a>
+            <a href="#contactSection" class="home">
+                <img src="./assets/img/logo.png" class="img1">
+                <span class="text-white">Contact</span>
+            </a>
+            <a href="" class="home">
+                <img src="./assets/img/logo.png" class="img1">
+                <span id="logoutBtn" class="text-white">Logout</span>
+            </a>
+
+        </div>
+
+        <section class="addBook px-4 col-lg-9 col-md-12 col-sm-12 col-12">
+
+            <div id="clikedFunctionFirst1" class="row  d-lg-none">
+                <div class="w-100 navbarLogoSection w-100   align-items-center logoSectionFirstStyle">
+                    <img src="./assets/img/logo-client.svg" style="margin-top: 16px; margin-left: 13px;" alt="">
+                    <i id="hamburger" class="fas fa-bars position-absolute c-pointer"
+                        style=" top: 19px; right:29px"></i>
+                </div>
+            </div>
 
             <div class="admin-icon">
                 <div class="d-flex align-items-center">
@@ -112,8 +151,8 @@
                             </div>
                             <div class="form-item">
                                 <label for="addBookDescription">Description</label>
-                                <textarea name="" id="addBookDescription" class="form-control" cols="30"
-                                    rows="6" placeholder="Book description"></textarea>
+                                <textarea name="" id="addBookDescription" class="form-control" cols="30" rows="6"
+                                    placeholder="Book description"></textarea>
                                 <span id="bookTextarea" class="textarea-limit"><span id="bookTextareaCount">0</span> /
                                     100</span>
                             </div>
@@ -156,10 +195,13 @@
                         </div>
 
                         <div class="bookDescription">
-                            <label for="description">Description</label>
+
+                            <label for="aboutDescription">Description</label>
+
                             <textarea name="" id="aboutDescription" class="form-control mb-2" rows="3"
                                 placeholder="Write description..."></textarea>
-                            <span class="textarea-limit">0 / 100</span>
+                            <span id="aboutTextarea" class="textarea-limit"><span id="aboutTextareaCount">0</span> /
+                                100</span>
                         </div>
 
                         <button class="about-info-add form-control">About info add</button>
@@ -167,25 +209,62 @@
                 </div>
             </section>
 
-            <section class="JoinUs" id="Join_us">
+            <section class="JoinUs mx-lg-4" id="Join_us">
                 <p>Join Us</p>
-                <table class="table Jointable">
-                    <thead>
-                        <tr class="text-white joinTh">
-                            <th scope="col">#</th>
-                            <th scope="col">Full Name</th>
-                            <th scope="col">Email Address</th>
-                        </tr>
-                    </thead>
-                    <tbody id="joinUsTbody">
-                    </tbody>
-                </table>
+                <div class="table-responsive">
+                    <table class="table Jointable join-table col-lg-8 col-md-12 p-0">
+                        <thead>
+                            <tr class="text-white joinTh">
+                                <th scope="col">#</th>
+                                <th scope="col">Full Name</th>
+                                <th scope="col">Email Address</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white" id="joinUsTbody">
+                        </tbody>
+                    </table>
+                </div>
             </section>
 
-
             <!-- Contact section (Ruslan) -->
-            <section id="contactSection">
-
+            <section id="contactSection" class="contactUs mx-lg-4">
+                <p>Contact Us</p>
+                <div class="table-responsive">
+                    <table class="table table-responsive Jointable col-lg-12 col-md-12 p-0">
+                        <thead>
+                            <tr class="text-white joinTh">
+                                <th scope="col">#</th>
+                                <th scope="col">Full Name</th>
+                                <th scope="col">Address</th>
+                                <th scope="col">Email Address</th>
+                                <th scope="col">Phone Number</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white" id="contactUsTbody">
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Test name</td>
+                                <td>Test address</td>
+                                <td>test@gmail.com</td>
+                                <td>+994504455678</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Test name</td>
+                                <td>Test address</td>
+                                <td>test@gmail.com</td>
+                                <td>+994504455678</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>Test name</td>
+                                <td>Test address</td>
+                                <td>test@gmail.com</td>
+                                <td>+994504455678</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </section>
             <!-- End contact section -->
 

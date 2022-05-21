@@ -125,16 +125,21 @@ $("#searchBtn").on("click", () => {
 })
 
 // **************************************
-// Add book section
+// Textarea limit function
 
-$("#addBookDescription").on("change keyup paste", () => {
-    $("#bookTextareaCount").text($("#addBookDescription").val().length);
-    if ($("#addBookDescription").val().length >= 100) {
-        $("#bookTextarea").addClass("text-danger");
-    } else {
-        $("#bookTextarea").removeClass("text-danger");
-    }
-})
+function countLimit(textarea, countDiv, textDiv) {
+    $(textarea).on("change keyup paste", () => {
+        $(countDiv).text($(textarea).val().length);
+        if ($(textarea).val().length >= 100) {
+            $(textDiv).addClass("text-danger");
+        } else {
+            $(textDiv).removeClass("text-danger");
+        }
+    })
+}
+
+countLimit("#addBookDescription", "#bookTextareaCount", "#bookTextarea");
+
 
 // ***************************************
 // Get book information and write to input
@@ -189,10 +194,10 @@ dbBookType.on("value", function (snap) {
         }
     })
 
-    renderPage(idObjectArray);
+    renderCategoryPage(idObjectArray);
 })
 
-function renderPage(arr) {
+function renderCategoryPage(arr) {
     $("#categorySelect").html(arr.map(item => {
         return `<option value="${item.category}">${item.category}</option>`
     }))
@@ -224,13 +229,22 @@ $("#bookTypeBtn").on("click", (e) => {
 // Add book to firebase section
 
 $("#addBookBtn").on("click", function () {
-    let bookName = $("#bookName").val();
-    let authorName = $("#authorName").val();
-    let image = $("#bookImageUrl").val();
+    let bookName = $("#bookName").val().trim();
+    let authorName = $("#authorName").val().trim();
+    let image = $("#bookImageUrl").val().trim();
     let year = $("#publicationYear").val();
-    let description = $("#addBookDescription").val();
+    let description = $("#addBookDescription").val().trim();
     let category = $("#categorySelect").val();
     let isNew = $("#isNew").is(":checked");
+
+    if (bookName === "" || authorName === "" || description === "") {
+        swal({
+            icon: 'error',
+            title: 'Error...',
+            text: "Book data can't be empty",
+        })
+        return;
+    }
 
     let bookObj = {
         bookName,
@@ -254,30 +268,50 @@ $("#addBookBtn").on("click", function () {
 
 
 
-
-
-
-
 // *****************************
-// About store section (Jalə)
+// About store section
 
-// Your code is here
+countLimit("#aboutDescription", "#aboutTextareaCount", "#aboutTextarea");
 
+db.ref('about-store').on("value", function (snap) {
+    $("#title").val(snap.val()["about-title"]);
+    $("#imageUrl").val(snap.val()["about-url"]);
+    $("#aboutDescription").val(snap.val()["about-description"]);
+})
 
+$(".about-info-add").on("click", (e) => {
+    e.preventDefault();
+    let title = $("#title").val().trim();
+    let imageUrl = $("#imageUrl").val().trim();
+    let aboutDescription = $("#aboutDescription").val().trim();
+    if (title === "" || imageUrl === "" || aboutDescription === "") {
+        swal({
+            icon: 'error',
+            title: 'Error...',
+            text: "Information can't be empty",
+        })
+        return
+    }
+    db.ref('about-store').set({
+        "about-title": title,
+        "about-url": imageUrl,
+        "about-description": aboutDescription
+    });
+
+    swal({
+        icon: 'success',
+        title: 'Success...',
+        text: "Information successfully updated",
+    })
+})
 
 // End of about store section
 // *****************************
 
-
-
-
-
 // *****************************
-// Join us section (Xalid)
+// Join us section 
 
-let userCollection = db.ref("/users")
-
-
+let userCollection = db.ref("/users");
 userCollection.on("value", function (snap) {
     let data = Object.entries(snap.val()).map((item) => {
         return {
@@ -286,20 +320,18 @@ userCollection.on("value", function (snap) {
 
         }
     })
-    console.log(data);
     renderPage(data)
 })
 
 function renderPage(arr) {
-    console.log("test");
     $("#joinUsTbody").html(
         arr.map((item, index) => {
             return `
-        <tr class="bg-white">
-                            <th scope="row">${index + 1}</th>
-                            <td>${item.joinFullName}</td>
-                            <td>${item.joinEmail}</td>
-                        </tr>
+        <tr>
+            <th scope="row">${index + 1}</th>
+            <td>${item.joinFullName}</td>
+            <td>${item.joinEmail}</td>
+        </tr>
         `
         })
     )
@@ -319,3 +351,23 @@ function renderPage(arr) {
 
 // End of contact us section
 // *****************************
+
+
+
+// Sidebar
+
+var hamburger = document.getElementById("hamburger");
+var clikedFunctionFirst1 = document.getElementById("clikedFunctionFirst1")
+hamburger.addEventListener("click",function(){
+    $(".CloseMenuHeaderSection").removeClass("d-none")
+    $(".CloseMenuHeaderSection").addClass("d-block")
+  document.body.classList.add("OpenMenuSTART")
+  clikedFunctionFirst1.classList.add("opavisib")
+})
+var closeBtn = document.getElementById("closeBtn");
+closeBtn.addEventListener("click",function(){
+  document.body.classList.remove("OpenMenuSTART")
+})
+$(document).on("click", ".home", function () {
+  $("body").removeClass("OpenMenuSTART")
+});
