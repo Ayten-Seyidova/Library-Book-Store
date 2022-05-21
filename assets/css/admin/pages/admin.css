@@ -4,6 +4,7 @@
 
 ::-webkit-scrollbar {
     width: 5px;
+    height: 5px;
 }
 
 ::-webkit-scrollbar-track {
@@ -22,6 +23,11 @@
 body {
     overflow-x: hidden;
     background-color: var(--mainBeigeColor);
+}
+
+#hamburger {
+    margin-top: 8px;
+    cursor: pointer;
 }
 
 .cursor-pointer {
@@ -206,7 +212,6 @@ body {
 
 .add-section {
     margin-top: 50px;
-    width: 95%;
 }
 
 .add-section .book-form-section {
@@ -287,13 +292,17 @@ input {
 }
 
 .add-section .add-new-book:hover {
-    background-color: #b96e13;
+    background-color: #dd7b03;
+}
+
+select {
+    box-shadow: 0 0 10px 0 lightgray;
+    border-radius: 10px;
 }
 
 /* About section */
 
 .about-store {
-    width: 95%;
     margin-top: 80px;
 }
 
@@ -351,16 +360,20 @@ textarea,
 }
 
 .about-info-add:hover {
-    background-color: #b96e13;
+    background-color: #dd7b03;
 }
 
 /* End about section */
 
 /* Join section */
 .JoinUs {
+<<<<<<< HEAD
     /* width: 512px;
     height: 258px; */
     margin: 136px 0 154px 30px;
+=======
+    margin-top: 136px;
+>>>>>>> abb7dbefa497f7f89e6c82bbf232fb6449892816
 }
 
 .JoinUs p {
@@ -369,6 +382,10 @@ textarea,
     font-size: 30px;
     line-height: 58.86px;
     color: #333333;
+}
+
+.join-table {
+    width: 512px;
 }
 
 .Jointable {
@@ -390,11 +407,130 @@ textarea,
 
 /* End join section  */
 
+/* Contact section */
 
+.contactUs {
+    margin-top: 150px;
+    margin-bottom: 100px;
+}
 
+.contactUs p {
+    font-family: var(--mainMontserrat);
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 58.86px;
+    color: #333333;
+}
 
-/* Contact section (Ruslan)*/
+.table > :not(caption) > * > * {
+    padding: 16px 10px;
+}
 
-/* Your code is here */
+tbody tr {
+    border-bottom: 1px solid rgb(231, 228, 228);
+}
 
+tbody tr:nth-child(even) {
+    background-color: #F9FAFC;
+}
+
+<<<<<<< HEAD
 /* End contact section */
+=======
+/* End contact section */
+
+@media only screen and (max-width: 992px) {
+    .search-book-section {
+        margin-top: 50px;
+    }
+
+    .search-book-section .search-input {
+        width: 90%;
+    }
+
+    .search-book-section .search-result {
+        width: 90%;
+    }
+
+    #homePage {
+        font-size: 25px;
+    }
+
+    .about-store h1 {
+        font-size: 25px;
+    }
+
+    .JoinUs {
+        margin-top: 50px !important;
+        margin-left: 0;
+        margin: auto;
+    }
+
+    .contactUs {
+        margin-top: 50px;
+    }
+
+    .sideBar {
+        display: none;
+    }
+
+    .admin-icon {
+        display: none;
+    }
+
+    .CloseMenuHeaderSection {
+        width: 80%;
+        background-color: var(--main-Red-bg-color);
+        position: fixed;
+        left: -100%;
+        height: 100vh;
+        position: fixed;
+        transition: .6s;
+        z-index: 99;
+    }
+
+    .OpenMenuSTART .CloseMenuHeaderSection {
+        left: 0%;
+        transition: .6s;
+    }
+
+    .OpenMenuSTART .opavisib {
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    .OpenMenuSTART {
+        overflow: hidden;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .search-book-section .search-result {
+        font-size: 12px;
+        padding: 20px 30px;
+    }
+
+    .search-book-section .search-result p:not(:last-child) {
+        margin-bottom: 10px;
+    }
+
+    #searchResult .search-img {
+        height: 40px;
+        width: 40px;
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    .logo {
+        margin-left: 20px;
+    }
+
+    .home {
+        margin-left: 20px;
+    }
+
+    .logo img {
+        width: 190px;
+    }
+}
+>>>>>>> abb7dbefa497f7f89e6c82bbf232fb6449892816
