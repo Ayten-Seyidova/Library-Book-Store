@@ -1,0 +1,21 @@
+main{
+    color: var(--main-text-color);
+    background-color: var(--mainBeigeColor);
+}
+.section1{
+    display: flex;
+    align-items: center;
+}
+.section1Title{
+    font-family: var(--mainFont);
+    font-weight: 900;
+    font-size: 36px;
+    margin-bottom: 16px;
+}
+.section1About{
+    font-family: var(--mainFont);
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 25.5px;
+
+}
