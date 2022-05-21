@@ -1,10 +1,23 @@
 /* Start */
 body {
-    background-color: var(--mainPage-white-bg-color);
     font-family: var(--mainFont);
 }
+
 footer {
     background-color: var(--footerColor);
+}
+
+.copyright {
+    font-size: 12px;
+}
+
+.footerConnnection button {
+    border: 1px solid #E16A00;
+}
+
+.footerConnnection button:hover {
+    color: #fff !important;
+    background-color: #E16A00;
 }
 
 #toggleBtn {

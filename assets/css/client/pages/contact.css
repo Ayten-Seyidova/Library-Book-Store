@@ -7,6 +7,14 @@ footer {
     background-color: var(--footerColor);
 }
 
+.contact-us h1{
+    font-size: 36px;
+}
+
+.copyright {
+    font-size: 12px;
+}
+
 .rightsDiv {
     display: none !important;
 }
@@ -407,6 +415,3 @@ body::-webkit-scrollbar-track {
 .text-white{
     margin-bottom: 10px;
 }
- 
-
-
