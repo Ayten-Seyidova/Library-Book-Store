@@ -384,7 +384,7 @@ db.ref('/contactUs').once('value', (snapshot) => {
 		return reData;
 	});
 	
-	for (let i = contactUs_data.length - 4; i < contactUs_data.length; i++) {
+	for (let i = contactUs_data.length -1; i < contactUs_data.length; i++) {
 		$('#contactUsTbody').append(
 			`
             <tr id='tr-${i}'>
