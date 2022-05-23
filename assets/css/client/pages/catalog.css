@@ -71,6 +71,7 @@ body {
 }
 
 .all-book-section .all-books .card {
+    margin: auto;
     height: 332px;
     width: 184px;
     padding: 20px;
@@ -119,6 +120,21 @@ body {
     background-color: #c85e02;
 }
 
+.card-new {
+    background-color: #EB5757;
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    font-weight: 900;
+    font-size: 9px;
+    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+    line-height: 18px;
+    padding: 0 12px;
+    border-radius: 3px;
+    box-shadow: 0 0 3px 0 rgba(225, 106, 0, 0.19);
+}
+
 .owl-dots {
     display: none;
 }
@@ -150,4 +166,19 @@ body {
 
 .social-icons {
     margin-top: 150px;
+}
+
+@media only screen and (max-width: 768px) {
+    .owl-nav {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .all-book-header {
+        flex-direction: column;
+    }
+
+    .all-book-header .category-section {
+        width: 300px;
+    }
 }

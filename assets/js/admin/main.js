@@ -40,7 +40,7 @@ $("#loginBtn").on("click", (e) => {
             } else {
                 swal({
                     icon: 'error',
-                    title: 'Eroor...',
+                    title: 'Error...',
                     text: 'Username or password is incorrect',
                 })
                 clearInput();
@@ -106,6 +106,7 @@ $("#searchBtn").on("click", () => {
         $("#searchResult ul").html("");
         let dataArr = response.items;
         if (!dataArr) {
+            $("#searchResult ul").css({ "overflow-y": "hidden" })
             $("#searchResult ul").html(`<p class="text-danger">No results found for your search</p>`);
         } else {
             for (let item of dataArr) {
@@ -163,7 +164,6 @@ function getBookInfo(data) {
     }
 }
 
-
 // **************************************
 // Add and Show Book Type Section
 
@@ -212,13 +212,13 @@ $("#bookTypeBtn").on("click", (e) => {
         swal({
             icon: 'success',
             title: 'Success...',
-            text: "Book type successfully added",
+            text: "Book type successfully added!",
         })
     } else {
         swal({
             icon: 'error',
             title: 'Error...',
-            text: "Book type can't be empty",
+            text: "Book type can't be empty!",
         })
     }
     bookTypeInput.val("");
@@ -237,6 +237,23 @@ $("#addBookBtn").on("click", function () {
     let category = $("#categorySelect").val();
     let isNew = $("#isNew").is(":checked");
 
+    function GetTodayDate() {
+        var tdate = new Date();
+        var dd = tdate.getDate();
+        var MM = tdate.toLocaleString('default', { month: 'long' }).toLowerCase();
+        var yyyy = tdate.getFullYear();
+        var hh = tdate.getHours();
+        var minutes = tdate.getMinutes();
+        hh < 10 ? hh = "0" + hh : hh;
+        minutes < 10 ? minutes = "0" + minutes : minutes;
+        var currentDate = dd + " " + MM + " " + yyyy + " " + hh + ":" + minutes;
+        return currentDate;
+    }
+
+    // console.log(GetTodayDate());
+
+    let addDate = GetTodayDate();
+
     if (bookName === "" || authorName === "" || description === "") {
         swal({
             icon: 'error',
@@ -253,7 +270,8 @@ $("#addBookBtn").on("click", function () {
         year,
         description,
         isNew,
-        category
+        category,
+        addDate,
     }
 
     db.ref("/books").push().set(bookObj);
@@ -263,10 +281,9 @@ $("#addBookBtn").on("click", function () {
         title: 'Success...',
         text: "Book successfully added",
     })
+    clearBookInput();
+
 })
-
-
-
 
 // *****************************
 // About store section
@@ -341,33 +358,52 @@ function renderPage(arr) {
 // *****************************
 
 
-
-
-
 // *****************************
-// Contact us section (Ruslan)
+// Contact us section
+db.ref('/contactUs').on("value", function (snap) {
+    let data = Object.entries(snap.val()).map((item) => {
+        return {
+            id: item[0],
+            ...item[1]
 
-// Your code is here
+        }
+    })
+    renderContactPage(data)
+})
+
+function renderContactPage(arr) {
+    $("#contactUsTbody").html(
+        arr.map((item, index) => {
+            return `
+        <tr>
+            <th scope="row">${index + 1}</th>
+            <td>${item.fullName}</td>
+            <td>${item.address}</td>
+            <td>${item.email}</td>
+            <td>${item.phone}</td>
+        </tr>
+        `
+        })
+    )
+}
 
 // End of contact us section
 // *****************************
-
-
 
 // Sidebar
 
 var hamburger = document.getElementById("hamburger");
 var clikedFunctionFirst1 = document.getElementById("clikedFunctionFirst1")
-hamburger.addEventListener("click",function(){
+hamburger.addEventListener("click", function () {
     $(".CloseMenuHeaderSection").removeClass("d-none")
     $(".CloseMenuHeaderSection").addClass("d-block")
-  document.body.classList.add("OpenMenuSTART")
-  clikedFunctionFirst1.classList.add("opavisib")
+    document.body.classList.add("OpenMenuSTART")
+    clikedFunctionFirst1.classList.add("opavisib")
 })
 var closeBtn = document.getElementById("closeBtn");
-closeBtn.addEventListener("click",function(){
-  document.body.classList.remove("OpenMenuSTART")
+closeBtn.addEventListener("click", function () {
+    document.body.classList.remove("OpenMenuSTART")
 })
 $(document).on("click", ".home", function () {
-  $("body").removeClass("OpenMenuSTART")
+    $("body").removeClass("OpenMenuSTART")
 });

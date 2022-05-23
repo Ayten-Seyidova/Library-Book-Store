@@ -7,8 +7,21 @@ footer {
     background-color: var(--footerColor);
 }
 
+#phone {
+    margin-top: 8px !important;
+}
+
+.iti {
+    width: 100% !important;
+}
+
+.iti__flag-container {
+    margin-top: 8px;
+}
+
 .contact-us h1{
     font-size: 36px;
+    line-height: 70px;
 }
 
 .copyright {
@@ -360,12 +373,12 @@ body::-webkit-scrollbar-track {
     }
 }
 
-#form-control-contactPG {
+.form-item {
     height: 75px;
     border: 1px solid #CECECE;
 }
 
-#form-control-contactPG::placeholder {
+.form-item::placeholder {
     font-family: 'Crimson Pro', serif;
     font-size: 23px;
     color: #797667;
@@ -393,7 +406,7 @@ body::-webkit-scrollbar-track {
         display: none;
     }
 
-    #form-control-contactPG {
+    .form-item {
         border-radius: 5px !important;
     }
 
