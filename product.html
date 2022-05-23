@@ -95,22 +95,28 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body my-4">
+                    <div class="modal-body mb-4">
                         <div class="form-title text-center">
                             <h4 style="font-size:44px; font-weight: 900">Join Us</h4>
                         </div>
                         <div class="d-flex flex-column text-center">
-                            <form class="mt-4  mx-4">
+                            <form class="mt-4 mb-0 mx-4">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="join-fullName" placeholder="Fullname"
+                                    <input type="text" class="form-control" id="joinFullName" placeholder="Fullname"
                                         style='height:76px; font-size: 19px; font-family: "Crimson Pro", serif;'>
                                 </div>
+                                <div id="alertJoinFirst" class="alert alert-danger d-none" role="alert">
+                                    Please check form
+                                </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="join-email" placeholder="Email"
+                                    <input type="text" class="form-control" id="joinEmail" placeholder="Email"
                                         style='height:76px; font-size: 19px; font-family: "Crimson Pro", serif;'>
                                 </div>
-                                <button type="button" class="btn btn-block text-white" id='join-btn'
-                                    style='background-color:#e16a00; margin-top:5rem;height:76px;font-size: 19px; font-family: "Crimson Pro", serif;'>Join</button>
+                                <div id="alertJoinSecond" class="alert alert-danger d-none" role="alert">
+                                    Please check form
+                                </div>
+                                <button type="button" class="btn btn-block text-white" id="addJoin"
+                                    style='background-color:#e16a00; margin-top:3rem;height:76px;font-size: 19px; font-family: "Crimson Pro", serif;'>Join</button>
                             </form>
                         </div>
                     </div>
@@ -128,23 +134,23 @@
                             class="added"></span></span>
                     <p class="author-name"></p>
                     <p class="book-description"></p>
-
-                    <div class="comment-section">
-                        <form action="" class="d-flex comment-form">
-                            <input id="commentInput" type="text" class="form-control"
-                                placeholder="your anonim comment...">
-                            <button id="commentBtn"><img src="./assets/img/comment-send.svg" alt=""></button>
-                        </form>
-
-                        <div class="all-comments">
-                        </div>
-
-                    </div>
                 </div>
                 <div class="col-lg-5 col-md-12 order-lg-2 order-md-1 order-sm-1 order-1 book-img-section">
                     <div class="book-img">
                         <img class="img-thumbnail d-block m-auto" src="" alt="">
                     </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="comment-section col-lg-7 col-md-12">
+                    <form action="" class="d-flex comment-form">
+                        <input id="commentInput" type="text" class="form-control" placeholder="your anonim comment...">
+                        <button id="commentBtn"><img src="./assets/img/comment-send.svg" alt=""></button>
+                    </form>
+
+                    <div class="all-comments">
+                    </div>
+
                 </div>
             </div>
 

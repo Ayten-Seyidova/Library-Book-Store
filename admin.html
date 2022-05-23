@@ -116,7 +116,7 @@
                 <div class="search-section">
                     <h3>Search book</h3>
                     <form action="" class="d-flex position-relative">
-                        <input id="searchInput" type="text" class="form-control search-input" placeholder="Dan Brown">
+                        <input id="searchInput" type="text" class="form-control search-input" placeholder="Search text...">
                         <button id="searchBtn" class="search-btn"><img src="./assets/img/search.svg" alt=""></button>
                         <div id="searchResult" class="search-result">
                             <ul></ul>
@@ -130,15 +130,15 @@
                         <form action="" class="book-form">
                             <div class="form-item">
                                 <label for="bookName">Book Name</label>
-                                <input type="text" class="form-control" id="bookName" placeholder="Angels">
+                                <input type="text" class="form-control" id="bookName" placeholder="Book name">
                             </div>
                             <div class="form-item">
                                 <label for="authorName">Author Name</label>
-                                <input type="text" class="form-control" id="authorName" placeholder="Dan Brown">
+                                <input type="text" class="form-control" id="authorName" placeholder="Author name">
                             </div>
                             <div class="form-item">
                                 <label for="bookImageUrl">Book Image Url</label>
-                                <input type="text" class="form-control" id="bookImageUrl" placeholder="Book Image Url">
+                                <input type="text" class="form-control" id="bookImageUrl" placeholder="https://image:url/">
                             </div>
                             <div class="form-item">
                                 <label for="publicationYear">Publication Year</label>
@@ -150,10 +150,10 @@
                             </div>
                             <div class="form-item">
                                 <label for="addBookDescription">Description</label>
-                                <textarea name="" id="addBookDescription" class="form-control" cols="30" rows="6"
+                                <textarea name="" id="addBookDescription" class="form-control" maxlength="1000" cols="30" rows="6"
                                     placeholder="Book description"></textarea>
                                 <span id="bookTextarea" class="textarea-limit"><span id="bookTextareaCount">0</span> /
-                                    100</span>
+                                    1000</span>
                             </div>
                         </form>
 
@@ -185,7 +185,7 @@
                     <form>
                         <div class="bookTitle">
                             <label for="title">Title</label>
-                            <input type="text" class="form-control" id="title" placeholder="About Store">
+                            <input type="text" class="form-control" id="title" placeholder="About store title">
                         </div>
 
                         <div class="bookImageUrl">
@@ -195,10 +195,10 @@
 
                         <div class="bookDescription">
                             <label for="aboutDescription">Description</label>
-                            <textarea name="" id="aboutDescription" class="form-control mb-2" rows="3"
+                            <textarea name="" id="aboutDescription" maxlength="1000" class="form-control mb-2" rows="3"
                                 placeholder="Write description..."></textarea>
                             <span id="aboutTextarea" class="textarea-limit"><span id="aboutTextareaCount">0</span> /
-                                100</span>
+                                1000</span>
                         </div>
 
                         <button class="about-info-add form-control">About info add</button>

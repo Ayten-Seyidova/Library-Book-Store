@@ -166,6 +166,10 @@
     .book-img img {
         width: 70%;
     }
+    .card-new {
+        right: 18%;
+        padding: 0 10px;
+    }
 }
 
 @media only screen and (max-width: 576px) {

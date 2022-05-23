@@ -1,5 +1,4 @@
 $(document).on('click', '#btn-sent-contactPG', () => {
-	console.log($("#phone").val());
 	if (!$("[data-input='name']").val() || !$("#phone").val()) {
 		swal({
 			icon: 'error',

@@ -131,7 +131,7 @@ $("#searchBtn").on("click", () => {
 function countLimit(textarea, countDiv, textDiv) {
     $(textarea).on("change keyup paste", () => {
         $(countDiv).text($(textarea).val().length);
-        if ($(textarea).val().length >= 100) {
+        if ($(textarea).val().length >= 1000) {
             $(textDiv).addClass("text-danger");
         } else {
             $(textDiv).removeClass("text-danger");
@@ -148,10 +148,17 @@ countLimit("#addBookDescription", "#bookTextareaCount", "#bookTextarea");
 function getBookInfo(data) {
     $("#bookName").val(data.title);
     $("#authorName").val(data.authors);
-    $("#addBookDescription").val(data.description);
     if (data.imageLinks.thumbnail) {
         $("#bookImageUrl").val(data.imageLinks.thumbnail);
     }
+
+    let descriptionCount = (data.description).length;
+
+    $("#addBookDescription").val(data.description.substring(0, 1000));
+
+    descriptionCount < 1000 ? descriptionCount = descriptionCount : descriptionCount = 1000;
+
+    $("#bookTextareaCount").text(descriptionCount);
 
     if (data.publishedDate) {
         let publishYear = parseInt(data.publishedDate.substring(0, 4))
@@ -294,6 +301,9 @@ db.ref('about-store').on("value", function (snap) {
     $("#title").val(snap.val()["about-title"]);
     $("#imageUrl").val(snap.val()["about-url"]);
     $("#aboutDescription").val(snap.val()["about-description"]);
+
+    let aboutCount = (snap.val()["about-description"]).length;
+    $("#aboutTextareaCount").text(aboutCount);
 })
 
 $(".about-info-add").on("click", (e) => {
@@ -301,6 +311,8 @@ $(".about-info-add").on("click", (e) => {
     let title = $("#title").val().trim();
     let imageUrl = $("#imageUrl").val().trim();
     let aboutDescription = $("#aboutDescription").val().trim();
+
+
     if (title === "" || imageUrl === "" || aboutDescription === "") {
         swal({
             icon: 'error',

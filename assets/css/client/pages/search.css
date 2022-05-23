@@ -104,11 +104,13 @@
 .carousel-control-prev-icon {
     margin-left: -150px;
     background-image: url(../../../img/left-arrow.svg);
+    height: 46px;
 }
 
 .carousel-control-next-icon {
     margin-right: -150px;
     background-image: url(../../../img/right-arrow.svg);
+    height: 46px;
 }
 
 @media only screen and (max-width: 992px) {

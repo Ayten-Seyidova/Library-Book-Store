@@ -22,7 +22,6 @@ header {
     height: 90px;
     background-color: var(--mainBeigeColor);
     z-index: 9;
-    box-shadow: 0 0 10px 0 lightgray;
 }
 
 #mainNav a {

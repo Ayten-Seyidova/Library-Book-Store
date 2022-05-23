@@ -74,8 +74,8 @@ $(document).ready(function () {
 
     function showBooks(item, tagName) {
         $(".loadingSpinner").fadeOut();
-        let bookName = item.bookName.substring(0, 16);
-        let authorName = item.authorName.substring(0, 20);
+        let bookName = item.bookName.substring(0, 12);
+        let authorName = item.authorName.substring(0, 15);
         let image = '';
         let cardNew = ''
         item.image ? image = item.image : image = "https://www.iconattitude.com/icons/open_icon_library/oxygen-style/png/256/x-office-address-book.png";
