@@ -1,9 +1,20 @@
+$(document).on('click', '#x-btn', () => {
+	$('.navbar-side').css({ left: '-200rem' });
+	$('#toggleBtn').css('transform', 'rotate(-180deg)');
+});
+
+$(document).on('click', '#toggleBtn', () => {
+	const heightOfContainer = $('html').height();
+	$('.navbar-side').css({ left: '0rem', height: `${heightOfContainer}` });
+	$('#toggleBtn').css('transform', 'rotate(90deg)');
+});
+
 $(document).ready(function () {
     let userCollection = db.ref("/users")
     $(document).on("click", "#addJoin", function (e) {
         e.preventDefault()
-        var joinFullName = $("#joinFullName").val()
-        var joinEmail = $("#joinEmail").val()
+        var joinFullName = $("#joinFullName").val().trim();
+        var joinEmail = $("#joinEmail").val().trim();
         let formData = {
             joinFullName,
             joinEmail
@@ -23,14 +34,16 @@ $(document).ready(function () {
             function alertSetTimeoutFunc() {
                 $("#alertJoinSecond").addClass("d-none")
             }
-        }
-
-        console.log(joinFullName, joinEmail);
-        if (formData) {
+        } else {
             userCollection.push().set(formData)
+            swal({
+                icon: 'success',
+                title: 'Success...',
+                text: "Successfully added",
+            })
             $("#joinFullName").val("")
             $("#joinEmail").val("")
+
         }
-        console.log(formData);
     })
 })

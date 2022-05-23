@@ -38,9 +38,7 @@
                             <a class="nav-link active text-white" href="./about.html">About Store</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link text-white" href="./contact.html"
-                                style="color: #E16A00 !important;transition: all 0.2s;border-bottom: 1px solid #E16A00 !important;">Contact
-                                us</a>
+                            <a class="nav-link text-white" href="./contact.html">Contact us</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active text-white" href="./search.html">Search</a>
@@ -90,15 +88,52 @@
 
 
     <main class="container">
+        <!-- Join Us -->
+        <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header border-bottom-0">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body my-4">
+                        <div class="form-title text-center">
+                            <h4 style="font-size:44px; font-weight: 900">Join Us</h4>
+                        </div>
+                        <div class="d-flex flex-column text-center">
+                            <form class="mt-4  mx-4">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="join-fullName" placeholder="Fullname"
+                                        style='height:76px; font-size: 19px; font-family: "Crimson Pro", serif;'>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="join-email" placeholder="Email"
+                                        style='height:76px; font-size: 19px; font-family: "Crimson Pro", serif;'>
+                                </div>
+                                <button type="button" class="btn btn-block text-white" id='join-btn'
+                                    style='background-color:#e16a00; margin-top:5rem;height:76px;font-size: 19px; font-family: "Crimson Pro", serif;'>Join</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Join Us -->
         <section class="all-book-section mt-5">
             <div class="all-book-header d-flex align-items-center">
                 <span class="category-name">All Books</span>
                 <div id="catalogType" class="category-section m-auto">
+                    <span class="category-item" id="allCategory" value="all">all</span>
+                    <div id="categoryAppend" class="d-inline-block"></div>
                 </div>
             </div>
-            <div class="all-books aaa">
-                <div id="allBookList" class="owl-carousel position-relative owl-carousel1 owl-theme">
-
+            <div class="all-books">
+                <div class="loadingSpinner">
+                    <img src="./assets/img/spinner.gif" width="100" class="m-auto d-block rounded-circle" alt="">
+                </div>
+                <div id="allBookList" class="owl-carousel all-book-carousel position-relative owl-carousel1 owl-theme">
                 </div>
             </div>
         </section>
@@ -108,6 +143,9 @@
                 <span class="category-name">Besteller</span>
             </div>
             <div class="all-books">
+                <div class="loadingSpinner">
+                    <img src="./assets/img/spinner.gif" width="100" class="m-auto d-block rounded-circle" alt="">
+                </div>
                 <div id="bestsellerBooks" class="owl-carousel position-relative owl-carousel1 owl-theme">
                 </div>
             </div>
@@ -118,16 +156,10 @@
                 <span class="category-name">New releases</span>
             </div>
             <div class="all-books">
-                <div class="owl-carousel position-relative owl-carousel1 owl-theme">
-                    <div class="card"><img class="card-img-top d-block"
-                            src="https://www.iconattitude.com/icons/open_icon_library/oxygen-style/png/256/x-office-address-book.png"
-                            alt="">
-                        <div class="card-body px-0 text-center">
-                            <h6 class="card-book-name">ad</h6>
-                            <p class="card-author-name">ad</p>
-                            <a href="" class="btn btn-block card-btn">Read more</a>
-                        </div>
-                    </div>
+                <div class="loadingSpinner">
+                    <img src="./assets/img/spinner.gif" width="100" class="m-auto d-block rounded-circle" alt="">
+                </div>
+                <div id="newReleases" class="owl-carousel position-relative owl-carousel1 owl-theme">
                 </div>
             </div>
         </section>

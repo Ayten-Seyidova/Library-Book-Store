@@ -75,6 +75,20 @@ header {
     border-bottom: 1px solid #E16A00 !important;
 }
 
+.navbar-nav .nav-item a {
+    border: 1px solid transparent;
+}
+
+.navbar-nav .nav-item a:hover {
+    color: #E16A00 !important;
+    border-bottom: 1px solid #E16A00 !important;
+}
+
+.navbar-nav .nav-item a:focus {
+    color: #E16A00 !important;
+    border-bottom: 1px solid #E16A00 !important;
+}
+
 .links a:hover {
     text-decoration: none !important;
     color: #E16A00;
@@ -93,7 +107,7 @@ header {
     }
 }
 
-@media (max-width: 995px) {
+@media (max-width: 992px) {
     .navbar {
         display: none;
     }

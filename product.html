@@ -36,9 +36,7 @@
                             <a class="nav-link active text-white" href="./about.html">About Store</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link text-white" href="./contact.html"
-                                style="color: #E16A00 !important;transition: all 0.2s;border-bottom: 1px solid #E16A00 !important;">Contact
-                                us</a>
+                            <a class="nav-link text-white" href="./contact.html">Contact us</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active text-white" href="./search.html">Search</a>
@@ -86,9 +84,72 @@
         </div>
     </header>
 
-    <main>
+    <main class="container">
+        <!-- Join Us -->
+        <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header border-bottom-0">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body my-4">
+                        <div class="form-title text-center">
+                            <h4 style="font-size:44px; font-weight: 900">Join Us</h4>
+                        </div>
+                        <div class="d-flex flex-column text-center">
+                            <form class="mt-4  mx-4">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="join-fullName" placeholder="Fullname"
+                                        style='height:76px; font-size: 19px; font-family: "Crimson Pro", serif;'>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="join-email" placeholder="Email"
+                                        style='height:76px; font-size: 19px; font-family: "Crimson Pro", serif;'>
+                                </div>
+                                <button type="button" class="btn btn-block text-white" id='join-btn'
+                                    style='background-color:#e16a00; margin-top:5rem;height:76px;font-size: 19px; font-family: "Crimson Pro", serif;'>Join</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Join Us -->
+        <section class="single-book-section">
+            <a href="./catalog.html" class="back-btn text-center"><i class="fa-solid fa-arrow-left"></i> BACK</a>
+            <div class="row">
+                <div class="col-lg-7 col-md-12 order-lg-1 order-md-2 order-sm-2 order-2 book-info">
+                    <p class="year-text text-center"></p>
+                    <h2 class="book-name"></h2>
+                    <span class="book-days"><time id="bookTimeAgo" class="timeago" datetime=""></time> <span
+                            class="added"></span></span>
+                    <p class="author-name"></p>
+                    <p class="book-description"></p>
 
-        <!-- Your code is here -->
+                    <div class="comment-section">
+                        <form action="" class="d-flex comment-form">
+                            <input id="commentInput" type="text" class="form-control"
+                                placeholder="your anonim comment...">
+                            <button id="commentBtn"><img src="./assets/img/comment-send.svg" alt=""></button>
+                        </form>
+
+                        <div class="all-comments">
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-lg-5 col-md-12 order-lg-2 order-md-1 order-sm-1 order-1 book-img-section">
+                    <div class="book-img">
+                        <img class="img-thumbnail d-block m-auto" src="" alt="">
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
 
     </main>
 
@@ -186,6 +247,7 @@
     integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2"
     crossorigin="anonymous"></script>
 <script src="https://www.gstatic.com/firebasejs/3.7.1/firebase.js"></script>
+<script src="./assets/js/jquery.timeago.js"></script>
 <script src="./assets/js/db.js"></script>
 <script src="./assets/js/client/product.js"></script>
 <script src="./assets/js/client/join.js"></script>

@@ -36,9 +36,7 @@
                             <a class="nav-link active text-white" href="./about.html">About Store</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link text-white" href="./contact.html"
-                                style="color: #E16A00 !important;transition: all 0.2s;border-bottom: 1px solid #E16A00 !important;">Contact
-                                us</a>
+                            <a class="nav-link text-white" href="./contact.html">Contact us</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active text-white" href="./search.html">Search</a>
@@ -86,10 +84,67 @@
         </div>
     </header>
 
-    <main>
-
-        <!-- Your code is here -->
-
+    <main class="container">
+        <!-- Join Us -->
+        <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header border-bottom-0">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body my-4">
+                        <div class="form-title text-center">
+                            <h4 style="font-size:44px; font-weight: 900">Join Us</h4>
+                        </div>
+                        <div class="d-flex flex-column text-center">
+                            <form class="mt-4  mx-4">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="join-fullName" placeholder="Fullname"
+                                        style='height:76px; font-size: 19px; font-family: "Crimson Pro", serif;'>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="join-email" placeholder="Email"
+                                        style='height:76px; font-size: 19px; font-family: "Crimson Pro", serif;'>
+                                </div>
+                                <button type="button" class="btn btn-block text-white" id='join-btn'
+                                    style='background-color:#e16a00; margin-top:5rem;height:76px;font-size: 19px; font-family: "Crimson Pro", serif;'>Join</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Join Us -->
+        <section class="search-section">
+            <h2 class="search-title">Search</h2>
+            <div class="row search-row">
+                <div class="col-lg-5 col-md-12 form-section">
+                    <form action="" class="search-form">
+                        <input id="searchInput" type="text" placeholder="Order in Chaos" class="form-control">
+                        <button id="searchBtn" class="form-control">Search</button>
+                    </form>
+                </div>
+                <div class="col-lg-7 col-md-12 slider-section d-none mt-lg-0 mt-md-5">
+                    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                        <div id="searchSlider" class="carousel-inner">
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev d-none" href="#carouselExampleControls" role="button"
+                        data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next d-none" href="#carouselExampleControls" role="button"
+                        data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+        </section>
     </main>
 
     <div class="social-icons d-flex flex-column align-items-center" id='social-icons-contact'>
@@ -173,7 +228,6 @@
                 style='font-size:12px; font-weight:200'>Library BookStore EACamp © 2003-2021</p>
         </div>
     </footer>
-
 </body>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
