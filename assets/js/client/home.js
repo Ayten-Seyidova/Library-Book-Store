@@ -1,6 +1,6 @@
 db.ref("/book-type").on("value", function (snap) {
     let categoryObj = snap.val()
-    let categoryArr = Object.entries(categoryObj).reverse(0, 9);
+    let categoryArr = Object.entries(categoryObj).reverse().slice(0, 9);
     let idObjectArray = categoryArr.map(item => {
         return {
             id: item[0],
@@ -12,7 +12,7 @@ db.ref("/book-type").on("value", function (snap) {
 })
 
 function renderCategoryPage(arr) {
-    $("#homeCatalog").html(arr.map(item => {
+    $("#homeCatalog").html(arr.map((item) => {
         return `<a href="./catalog.html" class="catalog-box col-md-3  d-flex justify-content-center align-items-center"> ${item.category}</a>`
     }))
 }
