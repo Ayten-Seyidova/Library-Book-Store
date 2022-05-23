@@ -13,7 +13,7 @@ db.ref("/book-type").on("value", function (snap) {
 
 function renderCategoryPage(arr) {
     $("#homeCatalog").html(arr.map(item => {
-        return `<a href="./catalog.html" class="catalog-box col-3 d-flex justify-content-center align-items-center "> ${item.category}</a>`
+        return `<a href="./catalog.html" class="catalog-box col-md-3  d-flex justify-content-center align-items-center"> ${item.category}</a>`
     }))
 }
 
