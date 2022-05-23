@@ -35,3 +35,32 @@ main {
     font-size: 14px;
     /* text-align: center; */
 }
+@media (max-width: 768px){
+    
+    .section1Title{
+        font-size: 28px;
+        text-align: center;
+    }
+    .section1About{
+        font-size: 13px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        width: 70%;
+        margin-bottom: 20px;
+    }
+    .section1-about{
+        margin-bottom: 39px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .catalog{
+        margin-left: 44px;
+    }
+    .section1-button{
+       width: 290px !important;
+    }
+    
+}
