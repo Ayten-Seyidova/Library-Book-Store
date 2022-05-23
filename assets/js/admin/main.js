@@ -408,18 +408,3 @@ db.ref('/contactUs').once('value', (snapshot) => {
 
 // Sidebar
 
-var hamburger = document.getElementById("hamburger");
-var clikedFunctionFirst1 = document.getElementById("clikedFunctionFirst1")
-hamburger.addEventListener("click",function(){
-    $(".CloseMenuHeaderSection").removeClass("d-none")
-    $(".CloseMenuHeaderSection").addClass("d-block")
-  document.body.classList.add("OpenMenuSTART")
-  clikedFunctionFirst1.classList.add("opavisib")
-})
-var closeBtn = document.getElementById("closeBtn");
-closeBtn.addEventListener("click",function(){
-  document.body.classList.remove("OpenMenuSTART")
-})
-$(document).on("click", ".home", function () {
-  $("body").removeClass("OpenMenuSTART")
-});

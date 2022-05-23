@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./assets/img/logo.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -77,8 +78,7 @@
                     <div class="d-flex flex-row logo-section-admin pl-5 mr-lg-4">
                         <img id='logo-img' src="./assets/img/adminIcon.svg" class='mr-lg-2' alt="img">
                         <div class='d-flex flex-column' id='f12'>
-                            <a class='logo-sec-title text-dark text-decoration-none' id="joinUs" href="#"
-                                data-toggle="modal" data-target="#loginModal">Join us</a>
+                            <a class='logo-sec-title text-dark text-decoration-none' id="joinUs" href="#"  data-toggle="modal" data-target="#loginModal" >Join us</a>
                         </div>
                     </div>
                 </div>
@@ -87,6 +87,35 @@
     </header>
 
     <main>
+        <!-- Join Us -->
+        <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header border-bottom-0">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body my-4">
+                  <div class="form-title text-center">
+                    <h4 style="font-size:44px; font-weight: 900">Join Us</h4>
+                  </div>
+                  <div class="d-flex flex-column text-center">
+                    <form class="mt-4  mx-4">
+                      <div class="form-group">
+                        <input type="text" class="form-control" id="join-fullName" placeholder="Fullname" style='height:76px; font-size: 19px; font-family: "Crimson Pro", serif;'>
+                      </div>
+                      <div class="form-group">
+                        <input type="text" class="form-control" id="join-email" placeholder="Email"  style='height:76px; font-size: 19px; font-family: "Crimson Pro", serif;'>
+                      </div>
+                      <button type="button" class="btn btn-block text-white" id='join-btn' style='background-color:#e16a00; margin-top:5rem;height:76px;font-size: 19px; font-family: "Crimson Pro", serif;'>Join</button>
+                    </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+        <!-- Join Us -->
 
         <!-- Your code is here -->
 
@@ -173,18 +202,18 @@
                 style='font-size:12px; font-weight:200'>Library BookStore EACamp © 2003-2021</p>
         </div>
     </footer>
-
 </body>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
-    integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+    integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous">
+    </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
     integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
-    integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2"
-    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
+    integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://www.gstatic.com/firebasejs/3.7.1/firebase.js"></script>
 <script src="./assets/js/db.js"></script>
 <script src="./assets/js/client/home.js"></script>
