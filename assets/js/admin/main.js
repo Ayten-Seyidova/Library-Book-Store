@@ -106,7 +106,9 @@ $("#searchBtn").on("click", () => {
         $("#searchResult ul").html("");
         let dataArr = response.items;
         if (!dataArr) {
-            $("#searchResult ul").css({ "overflow-y": "hidden" })
+            $("#searchResult ul").css({
+                "overflow-y": "hidden"
+            })
             $("#searchResult ul").html(`<p class="text-danger">No results found for your search</p>`);
         } else {
             for (let item of dataArr) {
@@ -215,7 +217,9 @@ $("#bookTypeBtn").on("click", (e) => {
     addTypeSection.hide();
     let typeVal = bookTypeInput.val().trim();
     if (typeVal) {
-        dbBookType.push().set({ category: typeVal })
+        dbBookType.push().set({
+            category: typeVal
+        })
         swal({
             icon: 'success',
             title: 'Success...',
@@ -247,7 +251,9 @@ $("#addBookBtn").on("click", function () {
     function GetTodayDate() {
         var tdate = new Date();
         var dd = tdate.getDate();
-        var MM = tdate.toLocaleString('default', { month: 'long' }).toLowerCase();
+        var MM = tdate.toLocaleString('default', {
+            month: 'long'
+        }).toLowerCase();
         var yyyy = tdate.getFullYear();
         var hh = tdate.getHours();
         var minutes = tdate.getMinutes();
@@ -406,16 +412,22 @@ function renderContactPage(arr) {
 
 var hamburger = document.getElementById("hamburger");
 var clikedFunctionFirst1 = document.getElementById("clikedFunctionFirst1")
+var clikedFunctionFirst2 = document.getElementById("clikedFunctionFirst2")
+var backColour = document.getElementById("backColour")
 hamburger.addEventListener("click", function () {
     $(".CloseMenuHeaderSection").removeClass("d-none")
     $(".CloseMenuHeaderSection").addClass("d-block")
     document.body.classList.add("OpenMenuSTART")
     clikedFunctionFirst1.classList.add("opavisib")
+    clikedFunctionFirst2.classList.add("opavisib")
+    backColour.classList.add("backcolor")
 })
 var closeBtn = document.getElementById("closeBtn");
 closeBtn.addEventListener("click", function () {
     document.body.classList.remove("OpenMenuSTART")
+    backColour.classList.remove("backcolor")
 })
 $(document).on("click", ".home", function () {
     $("body").removeClass("OpenMenuSTART")
+    backColour.classList.remove("backcolor")
 });
