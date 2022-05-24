@@ -86,9 +86,9 @@ function renderBooks(arr, search) {
                             alt="">
                     </div>
                     <div class="col-lg-8 col-md-8 col-sm-12 col-12">
-                        <h2 class="book-name">${item.bookName}</h2>
+                        <h2 class="book-name">${item.bookName.substring(0, 40)}</h2>
                         <p class="author-name">${item.authorName}</p>
-                        <p class="book-description">${item.description.substring(0, 300)}</p>
+                        <p class="book-description">${item.description.substring(0, 250)}</p>
                     </div>
                 </div>
             </div>`

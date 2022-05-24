@@ -70,6 +70,7 @@ $(document).ready(function () {
             renderNewBooks(bookObjArr);
         })
     }
+    
     getBooks();
 
     function showBooks(item, tagName) {
@@ -119,7 +120,11 @@ $(document).ready(function () {
     function renderCatPage(arr, localCat) {
         for (let item of arr) {
             if (localCat) {
+                console.log('abc');
+                console.log(item.category);
+                console.log(localCat);
                 if (item.category === localCat) {
+                    console.log('girdi');
                     var length = $('.all-book-carousel .owl-item').length;
                     for (var i = 0; i < length; i++) {
                         $(".all-book-carousel").trigger('remove.owl.carousel', [i])
