@@ -17,6 +17,6 @@ function renderCategoryPage(arr) {
     }))
 }
 
-$(document).on("click", ".catalog-box", function () {
-    localStorage.setItem("category", $(this).text());
-})
+// $(document).on("click", ".catalog-box", function () {
+//     localStorage.setItem("category", $(this).text());
+// })
