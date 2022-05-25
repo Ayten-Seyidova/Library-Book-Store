@@ -47,3 +47,25 @@ $(document).on('click', '#toggleBtn', () => {
     $('.navbar-side').css({ left: '0rem', height: `${heightOfContainer}` });
     $('#toggleBtn').css('transform', 'rotate(90deg)');
 });
+
+$(window).resize(function () {
+    if ($(window).width() < 992) {
+        $("#mediaJoin").html(`<div class='d-flex flex-column'>
+        <a class='text-dark text-decoration-none' href="#"
+            data-toggle="modal" data-target="#loginModal"><img id='logo-img' src="./assets/img/adminIcon.svg" class='mr-lg-2' alt="img"></a>
+      </div>`);
+    }
+    else {
+        $("#mediaJoin").html("");
+    }
+});
+
+if ($(window).width() < 992) {
+    $("#mediaJoin").html(`<div class='d-flex flex-column'>
+    <a class='text-dark text-decoration-none' href="#"
+        data-toggle="modal" data-target="#loginModal"><img id='logo-img' src="./assets/img/adminIcon.svg" class='mr-lg-2' alt="img"></a>
+  </div>`);
+}
+else {
+    $("#mediaJoin").html("");
+}
