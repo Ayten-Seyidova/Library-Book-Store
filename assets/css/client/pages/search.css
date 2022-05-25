@@ -184,4 +184,16 @@
     .carousel-item {
         height: auto;
     }
+
+    .carousel-control-prev-icon {
+        margin-left: -50px;
+        background-image: url(../../../img/left-arrow.svg);
+        height: 46px;
+    }
+    
+    .carousel-control-next-icon {
+        margin-right: -50px;
+        background-image: url(../../../img/right-arrow.svg);
+        height: 46px;
+    }
 }

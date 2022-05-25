@@ -61,7 +61,7 @@ $("#loginBtn").on("click", (e) => {
 // **************************************
 // Logout section
 
-$("#logoutBtn").on("click", () => {
+$(".logout-BTN").on("click", () => {
     localStorage.removeItem("login");
     loginPage.show();
     adminPage.hide();
@@ -406,16 +406,22 @@ function renderContactPage(arr) {
 
 var hamburger = document.getElementById("hamburger");
 var clikedFunctionFirst1 = document.getElementById("clikedFunctionFirst1")
+var clikedFunctionFirst2 = document.getElementById("clikedFunctionFirst2")
+var backColour = document.getElementById("backColour")
 hamburger.addEventListener("click", function () {
     $(".CloseMenuHeaderSection").removeClass("d-none")
     $(".CloseMenuHeaderSection").addClass("d-block")
     document.body.classList.add("OpenMenuSTART")
     clikedFunctionFirst1.classList.add("opavisib")
+    clikedFunctionFirst2.classList.add("opavisib")
+    backColour.classList.add("backcolor")
 })
 var closeBtn = document.getElementById("closeBtn");
 closeBtn.addEventListener("click", function () {
     document.body.classList.remove("OpenMenuSTART")
+    backColour.classList.remove("backcolor")
 })
 $(document).on("click", ".home", function () {
     $("body").removeClass("OpenMenuSTART")
+    backColour.classList.remove("backcolor")
 });

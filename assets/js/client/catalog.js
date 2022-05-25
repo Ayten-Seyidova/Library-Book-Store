@@ -5,6 +5,7 @@ $(document).ready(function () {
         loop: true,
         margin: 30,
         nav: true,
+        navText: ["<img src='./assets/img/left-arrow.svg'>","<img src='./assets/img/right-arrow.svg'>"],
         responsive: {
             0: {
                 items: 1
@@ -52,6 +53,7 @@ $(document).ready(function () {
         }))
     }
 
+
     function getBooks() {
         db.ref("/books").on("value", function (snap) {
             let bookObj = snap.val()
@@ -70,7 +72,7 @@ $(document).ready(function () {
             renderNewBooks(bookObjArr);
         })
     }
-    
+
     getBooks();
 
     function showBooks(item, tagName) {
@@ -120,11 +122,7 @@ $(document).ready(function () {
     function renderCatPage(arr, localCat) {
         for (let item of arr) {
             if (localCat) {
-                console.log('abc');
-                console.log(item.category);
-                console.log(localCat);
                 if (item.category === localCat) {
-                    console.log('girdi');
                     var length = $('.all-book-carousel .owl-item').length;
                     for (var i = 0; i < length; i++) {
                         $(".all-book-carousel").trigger('remove.owl.carousel', [i])
@@ -136,7 +134,7 @@ $(document).ready(function () {
                 } else if (localCat === 'all') {
                     $("#allCategory").addClass('active');
                     showBooks(item, '#allBookList');
-                }
+                } 
             } else {
                 $("#allCategory").addClass('active');
                 showBooks(item, '#allBookList');

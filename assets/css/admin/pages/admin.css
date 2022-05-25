@@ -390,6 +390,10 @@ tbody tr:nth-child(even) {
 /* End contact section */
 
 @media only screen and (max-width: 992px) {
+    .backcolor{
+        background-color: rgba(36, 20, 0, 0.7) !important;
+        opacity: 0.7%;
+    }
     .search-book-section {
         margin-top: 50px;
     }
@@ -423,6 +427,9 @@ tbody tr:nth-child(even) {
     .sideBar {
         display: none;
     }
+    .logo{
+        margin-top: 19.82px;
+    }
 
     .admin-icon {
         display: none;
@@ -438,23 +445,31 @@ tbody tr:nth-child(even) {
         transition: .6s;
         z-index: 99;
     }
-
+    body{
+        background-color: rgba(36, 20, 0, 0.7) !important;
+    }
     .OpenMenuSTART .CloseMenuHeaderSection {
         left: 0%;
         transition: .6s;
+
     }
 
     .OpenMenuSTART .opavisib {
         visibility: hidden;
         opacity: 0;
+        
     }
 
     .OpenMenuSTART {
         overflow: hidden;
+        
     }
 }
 
 @media only screen and (max-width: 576px) {
+    .logo{
+        margin-top: 19.82px;
+    }
     .search-book-section .search-result {
         font-size: 12px;
         padding: 20px 30px;
@@ -472,6 +487,7 @@ tbody tr:nth-child(even) {
 
 @media only screen and (max-width: 420px) {
     .logo {
+        margin-top: 19.82px;
         margin-left: 20px;
     }
 

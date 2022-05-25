@@ -99,6 +99,10 @@ header {
     height: 1px;
 }
 
+#toggleBtn, #x-btn {
+   cursor: pointer;
+}
+
 @media (max-width: 1210px) {
     .logo-section {
         margin-left: 0px !important;
